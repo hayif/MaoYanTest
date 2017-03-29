@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.ActorDao">
+    <resultMap id="actorMap" type="actor">
+        <id property="actorId" column="actor_id"/>
+        <result property="actorName" column="actor_name"/>
+        <result property="actorPhoto" column="actor_photo"/>
+        <result property="actorIntro" column="actor_intro"/>
+        <result property="actorBirthday" column="actor_birthday"/>
+        <result property="actorBirthplace" column="actor_birthplace"/>
+        <result property="actorSex" column="actor_sex"/>
+        <result property="actorNationality" column="actor_nationality"/>
+        <result property="actorNation" column="actor_nation"/>
+    </resultMap>
+</mapper>
