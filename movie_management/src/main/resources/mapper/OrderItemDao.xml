@@ -2,5 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.OrderItemDao">
+    <!--关联订单（多对一）-->
+    <resultMap id="orderMap" type="order">
 
+    </resultMap>
+    <!--关联电影排片（多对一）-->
+    <resultMap id="movieScheduleMap" type="movieSchedule">
+
+    </resultMap>
+
+    <resultMap id="orderItemMap" type="orderItem">
+        <id property="itemId" column="item_id"/>
+        <result property="itemNum" column="item_num"/>
+        <association property="order" resultMap="orderMap"/>
+        <association property="movieSchedule" resultMap="movieScheduleMap"/>
+    </resultMap>
 </mapper>

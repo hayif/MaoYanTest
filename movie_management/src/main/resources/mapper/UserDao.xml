@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.UserDao">
+    <!--关联订单（一对多）-->
+    <resultMap id="orderMap" type="order">
+
+    </resultMap>
+    <!--关联电影成想看列表（多对多)-->
+    <resultMap id="movieMap" type="movie">
+
+    </resultMap>
+    <!--关联电影评价（一对多)-->
+    <resultMap id="commentMovieMap" type="commentMovie">
+
+    </resultMap>
+    <!--关联电影院评价（一对多）-->
+    <resultMap id="commentCinemaMap" type="commentCinema">
+
+    </resultMap>
+
     <resultMap id="userMap" type="user">
         <id property="userId" column="user_id"/>
         <result property="userName" column="user_name"/>
@@ -9,5 +26,9 @@
         <result property="userPassword" column="user_password"/>
         <result property="userHeadPortrait" column="user_head_portrait"/>
         <result property="userStatus" column="user_status"/>
+        <collection property="orders" resultMap="orderMap"/>
+        <collection property="movies" resultMap="movieMap"/>
+        <collection property="commentMovies" resultMap="commentMovieMap"/>
+        <collection property="commentCinemas" resultMap="commentCinemaMap"/>
     </resultMap>
 </mapper>

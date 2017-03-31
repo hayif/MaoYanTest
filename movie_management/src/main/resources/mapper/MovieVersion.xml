@@ -2,5 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.MovieVersionDao">
-
+    <resultMap id="movieVersionMap" type="movieVersion">
+        <id property="movieVersionId" column="movie_version_id"/>
+        <result property="movieVersionName" column="movie_version_name"/>
+        <result property="movieVersionStatus" column="movie_version_status"/>
+    </resultMap>
 </mapper>

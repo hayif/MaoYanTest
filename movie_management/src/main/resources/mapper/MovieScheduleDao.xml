@@ -2,5 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.MovieScheduleDao">
+    <!--关联订单项（一对多）-->
+    <resultMap id="oderItemMap" type="orderItem">
 
+    </resultMap>
+    <!--关联影厅（多对一）-->
+    <resultMap id="cinemaScreensMap" type="cinemaScreens">
+
+    </resultMap>
+    <!--关联上映表 （多对一）-->
+    <resultMap id="cinemaShowMap" type="cinemaShow">
+
+    </resultMap>
+    <resultMap id="movieScheduleDao" type="movieSchedule">
+        <id property="movieScheduleId" column="movie_schedule_id"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="ticketPrice" column="ticket_price"/>
+        <association property="orderItems" resultMap="oderItemMap"/>
+        <association property="screens" resultMap="cinemaScreensMap"/>
+        <collection property="cinemaShow" resultMap="cinemaShowMap"/>
+    </resultMap>
 </mapper>

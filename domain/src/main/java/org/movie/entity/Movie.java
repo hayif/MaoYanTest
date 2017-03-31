@@ -14,7 +14,7 @@ public class Movie {
     //电影名字
     private String movieName;
     //电影描述
-    private String movieDesc;
+    private String movieDescription;
     //电影简介
     private String movieIntro;
     //电影封面
@@ -64,12 +64,12 @@ public class Movie {
         this.movieName = movieName;
     }
 
-    public String getMovieDesc() {
-        return movieDesc;
+    public String getMovieDescription() {
+        return movieDescription;
     }
 
-    public void setMovieDesc(String movieDesc) {
-        this.movieDesc = movieDesc;
+    public void setMovieDescription(String movieDescription) {
+        this.movieDescription = movieDescription;
     }
 
     public String getMovieIntro() {

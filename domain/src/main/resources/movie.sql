@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50623
 File Encoding         : 65001
 
-Date: 2017-03-28 09:01:47
+Date: 2017-03-31 14:44:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -220,6 +220,7 @@ CREATE TABLE `movie_info` (
   `movie_time` varchar(255) DEFAULT NULL,
   `movie_date_id` varchar(255) DEFAULT NULL,
   `movie_version_id` varchar(255) DEFAULT NULL,
+  `movie_description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`movie_id`),
   KEY `FKrdeuounk892uit2hvcy614923` (`movie_date_id`),
   KEY `FKso5s9ttm23yn7rchsw89hw0ut` (`movie_version_id`),
@@ -351,7 +352,6 @@ CREATE TABLE `user_info` (
   `user_password` varchar(255) DEFAULT NULL,
   `user_phone` varchar(255) DEFAULT NULL,
   `user_status` int(11) DEFAULT NULL,
-  `user_version` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

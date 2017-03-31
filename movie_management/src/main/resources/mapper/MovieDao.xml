@@ -2,24 +2,61 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.MovieDao">
+    <!--关联电影年代（多对一）-->
+    <resultMap id="movieDateMap" type="movieDate">
+
+    </resultMap>
+    <!--关联电影版本（多对一）-->
+    <resultMap id="movieVersionMap" type="movieVersion">
+
+    </resultMap>
+    <!--关联用户成想看表（多对多）-->
+    <resultMap id="userMap" type="user">
+
+    </resultMap>
+    <!--关联图集（一对多）-->
+    <resultMap id="moviePhotosMap" type="moviePhotos">
+
+    </resultMap>
+    <!--关联电影区域（多对多）-->
+    <resultMap id="movieAreaMap" type="movieArea">
+
+    </resultMap>
+    <!--关联电影类型（多对多）-->
+    <resultMap id="movieTypeMap" type="movieType">
+
+    </resultMap>
+    <!--关联出演人员表（一对多）-->
+    <resultMap id="movieActorMap" type="movieActor">
+
+    </resultMap>
+    <!--关联用户评论（一对多）-->
+    <resultMap id="commentMovieMap" type="commentMovie">
+
+    </resultMap>
+    <!--关联影院上映电影（一对多）-->
+    <resultMap id="cinemaShowMap" type="cinemaShow">
+
+    </resultMap>
     <resultMap id="movieMap" type="movie">
-        <id property="movieId" column=""/>
-        <result property="movieName" column=""/>
-        <result property="movieDesc" column=""/>
-        <result property="movieIntro" column=""/>
-        <result property="movieCover" column=""/>
-        <result property="movieReleaseDate" column=""/>
-        <result property="movieEndDate" column=""/>
-        <result property="movieTime" column=""/>
-        <result property="movieScore" column=""/>
-        <association property="" resultMap=""/>
-        <association property="" resultMap=""/>
-        <association property="" resultMap=""/>
-        <association property="" resultMap=""/>
-        <association property="" resultMap=""/>
-        <association property="" resultMap=""/>
-        <collection property="" resultMap=""/>
-        <collection property="" resultMap=""/>
-        <collection property="" resultMap=""/>
+        <id property="movieId" column="movie_id"/>
+        <result property="movieName" column="movie_name"/>
+        <result property="movieDescription" column="movie_description"/>
+        <result property="movieIntro" column="movie_intro"/>
+        <result property="movieCover" column="movie_cover"/>
+        <result property="movieReleaseDate" column="movie_release_date"/>
+        <result property="movieEndDate" column="movie_end_date"/>
+        <result property="movieTime" column="movie_time"/>
+        <result property="movieScore" column="movie_score"/>
+
+        <association property="movieDate" resultMap="movieDateMap"/>
+        <association property="movieVersion" resultMap="movieVersionMap"/>
+        <collection property="users" resultMap="userMap"/>
+        <collection property="moviePhotoss" resultMap="moviePhotosMap"/>
+        <collection property="movieAreas" resultMap="movieAreaMap"/>
+        <collection property="movieTypes" resultMap="movieTypeMap"/>
+        <collection property="movieActors" resultMap="movieActorMap"/>
+        <collection property="commentMovies" resultMap="commentMovieMap"/>
+        <collection property="cinemaShows" resultMap="cinemaShowMap"/>
     </resultMap>
 </mapper>

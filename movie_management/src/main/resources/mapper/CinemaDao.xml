@@ -2,15 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.movie.dao.CinemaDao">
+    <!--关联影院地址（多对一）-->
     <resultMap id="cinemaAddressMap" type="cinemaAddress">
-
+        <id property="cinemaAddressId" column="cinema_address_id"/>
+        <result property="cinemaAddressCity" column="cinema_address_city"/>
+        <result property="cinemaAddressArea" column="cinema_address_area"/>
     </resultMap>
+    <!--关联影厅（一对多）-->
     <resultMap id="cinemaScreensMap" type="cinemaScreens">
 
     </resultMap>
+    <!--关联评价影院（一对多）-->
     <resultMap id="commentCinemaMap" type="commentCinema">
 
     </resultMap>
+    <!--关联影院上映电影（一对多）-->
     <resultMap id="cinemaShowMap" type="cinemaShow">
 
     </resultMap>
