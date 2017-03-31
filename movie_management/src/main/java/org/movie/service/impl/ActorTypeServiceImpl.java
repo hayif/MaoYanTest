@@ -90,4 +90,9 @@ public class ActorTypeServiceImpl implements ActorTypeService {
     public List<ActorType> findLikeList(ActorType actorType) {
         return actorTypeDao.findLikeList(actorType.getActorTypeName());
     }
+
+    @Override
+    public int countActorType() {
+        return actorTypeDao.countActorType();
+    }
 }

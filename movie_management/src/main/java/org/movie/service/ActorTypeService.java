@@ -56,4 +56,10 @@ public interface ActorTypeService {
      * @return
      */
     public List<ActorType> findLikeList(ActorType actorType);
+
+    /**
+     *  统计查询
+     * @return
+     */
+    public int countActorType();
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.CinemaSeatsDao">
+    <resultMap id="cinemaSeatsMap" type="cinemaSeats">
+        <id property="id" column="seats_id"/>
+        <result property="row" column="seats_row"/>
+        <result property="col" column="seats_col"/>
+        <result property="status" column="seats_status"/>
+    </resultMap>
+</mapper>

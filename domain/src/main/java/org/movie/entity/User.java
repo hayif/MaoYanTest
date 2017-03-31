@@ -18,8 +18,6 @@ public class User {
     private String userPassword;
     //用户头像
     private String userHeadPortrait;
-    //用户版本号
-    private int userVersion;
     //状态
     private int userStatus;
     //关联订单（一对多、双向关联）
@@ -77,14 +75,6 @@ public class User {
 
     public void setUserHeadPortrait(String userHeadPortrait) {
         this.userHeadPortrait = userHeadPortrait;
-    }
-
-    public int getUserVersion() {
-        return userVersion;
-    }
-
-    public void setUserVersion(int userVersion) {
-        this.userVersion = userVersion;
     }
 
     public List<Order> getOrders() {

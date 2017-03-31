@@ -1,8 +1,6 @@
 package org.movie.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.movie.entity.Actor;
 import org.springframework.stereotype.Repository;
 
@@ -35,7 +33,8 @@ public interface ActorDao extends BaseDao<Actor> {
      * 保存对象
      * @param actor
      */
-    @Insert("INSERT INTO ACTOR_INFO(ACTOR_ID,ACTOR_NAME,ACTOR_PHOTO,ACTOR_INTRO,ACTOR_BIRTHDAY,ACTOR_BIRTHPLACE,ACTOR_SEX,ACTOR_NATIONALITY,ACTOR_NATION) " +
+    @Insert("INSERT INTO " +
+            "ACTOR_INFO(ACTOR_ID,ACTOR_NAME,ACTOR_PHOTO,ACTOR_INTRO,ACTOR_BIRTHDAY,ACTOR_BIRTHPLACE,ACTOR_SEX,ACTOR_NATIONALITY,ACTOR_NATION) " +
             "VALUES(#{actorId},#{actorName},#{actorPhoto},#{actorIntro},#{actorBirthday},#{actorBirthplace},#{actorSex},#{actorNationality},#{actorNation})")
     @Override
     public void save(Actor actor);
@@ -45,6 +44,8 @@ public interface ActorDao extends BaseDao<Actor> {
      * @param id
      * @return
      */
+    @Select("SELECT * FROM ACTOR_INFO WHERE ACTOR_ID =#{id}")
+    @ResultMap("org.movie.dao.ActorDao.actorMap")
     @Override
     public Actor findById(String id);
 
@@ -52,6 +53,7 @@ public interface ActorDao extends BaseDao<Actor> {
      *  根据id删除对象
      * @param id
      */
+    @Delete("DELETE FROM ACTOR_INFO WHERE ACTOR_ID = #{id}")
     @Override
     public void delete(String id);
 
@@ -59,6 +61,16 @@ public interface ActorDao extends BaseDao<Actor> {
      *  修改对象
      * @param actor
      */
+    @Update("UPDATE ACTOR_INFO SET " +
+            "ACTOR_NAME = #{actorName}," +
+            "ACTOR_PHOTO = #{actorPhoto}," +
+            "ACTOR_INTRO = #{actorIntro}," +
+            "ACTOR_BIRTHDAY = #{actorBirthday}," +
+            "ACTOR_BIRTHPLACE = #{actorBirthplace}," +
+            "ACTOR_SEX = #{actorSex}," +
+            "ACTOR_NATIONALITY = #{actorNationality}," +
+            "ACTOR_NATION = #{actorNation} " +
+            "WHERE ACTOR_ID = #{actorId}")
     @Override
     public void update(Actor actor);
 }

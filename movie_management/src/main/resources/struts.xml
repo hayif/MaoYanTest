@@ -16,5 +16,10 @@
                 <param name="root">list</param>
             </result>
         </action>
+        <action name="countActorType" class="actorTypeAction" method="countActorType">
+            <result type="json">
+                <param name="root">countSize</param>
+            </result>
+        </action>
     </package>
 </struts>

@@ -8,7 +8,7 @@
         $(function(){
             $(":button").on("click",function(){
                 alert(1);
-                $.get("findAllList",function(result){
+                $.get("countActorType",function(result){
                     var str = JSON.stringify(result);
                     alert(str);
                 });

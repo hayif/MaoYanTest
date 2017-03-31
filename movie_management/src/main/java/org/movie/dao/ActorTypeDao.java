@@ -13,6 +13,12 @@ import java.util.List;
 @Repository
 public interface ActorTypeDao extends BaseDao<ActorType> {
     /**
+     * 统计查询
+     * @return
+     */
+    @Select("SELECT COUNT(*) FROM ACTOR_TYPE_INFO")
+    public int countActorType();
+    /**
      * 查询列表
      * @return
      */
@@ -63,4 +69,14 @@ public interface ActorTypeDao extends BaseDao<ActorType> {
     @Update("UPDATE ACTOR_TYPE_INFO SET ACTOR_TYPE_NAME = #{actorTypeName},ACTOR_TYPE_STATUS = #{actorTypeStatus} WHERE ACTOR_TYPE_ID = #{actorTypeId}")
     @Override
     public void update(ActorType actorType);
+
+    /**
+     * 分页查询
+     * @param a
+     * @param b
+     * @return
+     */
+    @Select("SELECT * FROM ACTOR_TYPE_INFO  LIMIT  #{a},#{b};")
+    @ResultMap("org.movie.dao.ActorTypeDao.actorTypeMap")
+    public List<ActorType> findLimitList(int a,int b);
 }

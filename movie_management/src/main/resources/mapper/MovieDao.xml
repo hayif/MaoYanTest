@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.MovieDao">
+    <resultMap id="movieMap" type="movie">
+        <id property="movieId" column=""/>
+        <result property="movieName" column=""/>
+        <result property="movieDesc" column=""/>
+        <result property="movieIntro" column=""/>
+        <result property="movieCover" column=""/>
+        <result property="movieReleaseDate" column=""/>
+        <result property="movieEndDate" column=""/>
+        <result property="movieTime" column=""/>
+        <result property="movieScore" column=""/>
+        <association property="" resultMap=""/>
+        <association property="" resultMap=""/>
+        <association property="" resultMap=""/>
+        <association property="" resultMap=""/>
+        <association property="" resultMap=""/>
+        <association property="" resultMap=""/>
+        <collection property="" resultMap=""/>
+        <collection property="" resultMap=""/>
+        <collection property="" resultMap=""/>
+    </resultMap>
+</mapper>

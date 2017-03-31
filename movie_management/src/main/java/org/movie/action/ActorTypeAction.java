@@ -17,8 +17,11 @@ import java.util.List;
 @Controller("actorTypeAction")
 @Scope("prototype")
 public class ActorTypeAction {
+
     @Autowired
     private ActorTypeService service;
+
+    private int countSize;
     private ActorType actorType;
     private List<ActorType> list = new ArrayList<>();
 
@@ -38,6 +41,14 @@ public class ActorTypeAction {
         this.actorType = actorType;
     }
 
+    public int getCountSize() {
+        return countSize;
+    }
+
+    public void setCountSize(int countSize) {
+        this.countSize = countSize;
+    }
+
     public String findAllList(){
         System.out.println("11");
         list = service.findActorTypeList();
@@ -47,6 +58,10 @@ public class ActorTypeAction {
     public String findLikeList(){
         System.out.println("1");
         list = service.findLikeList(actorType);
+        return "success";
+    }
+    public String countActorType(){
+        countSize = service.countActorType();
         return "success";
     }
 }
