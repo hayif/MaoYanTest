@@ -1,6 +1,7 @@
 package org.movie.service;
 
 import org.movie.entity.ActorType;
+import org.movie.utils.PageBean;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public interface ActorTypeService {
      *  列表
      * @return
      */
-    public List<ActorType> findActorTypeList();
+    public List<ActorType> findActorTypeList(PageBean pageBean);
 
     /**
      *  查询单个
@@ -62,4 +63,5 @@ public interface ActorTypeService {
      * @return
      */
     public int countActorType();
+
 }

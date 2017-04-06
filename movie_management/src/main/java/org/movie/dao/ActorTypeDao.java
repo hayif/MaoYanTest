@@ -22,9 +22,9 @@ public interface ActorTypeDao extends BaseDao<ActorType> {
      * 查询列表
      * @return
      */
-    @Select("SELECT * FROM ACTOR_TYPE_INFO")
+    @Select("SELECT * FROM ACTOR_TYPE_INFO LIMIT  #{firstResult},#{maxResult}")
     @ResultMap("org.movie.dao.ActorTypeDao.actorTypeMap")
-    public List<ActorType> findActorTypeList();
+    public List<ActorType> findActorTypeList(int firstResult,int maxResult);
 
     /**
      * 模糊查询

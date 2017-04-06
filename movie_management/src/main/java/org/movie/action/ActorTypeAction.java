@@ -2,6 +2,7 @@ package org.movie.action;
 
 import org.movie.entity.ActorType;
 import org.movie.service.ActorTypeService;
+import org.movie.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,15 @@ public class ActorTypeAction {
     private int countSize;
     private ActorType actorType;
     private List<ActorType> list = new ArrayList<>();
+    private PageBean<ActorType> pageBean;
+
+    public PageBean getPageBean() {
+        return pageBean;
+    }
+
+    public void setPageBean(PageBean pageBean) {
+        this.pageBean = pageBean;
+    }
 
     public List<ActorType> getList() {
         return list;
@@ -51,7 +61,7 @@ public class ActorTypeAction {
 
     public String findAllList(){
         System.out.println("11");
-        list = service.findActorTypeList();
+        pageBean.setList(service.findActorTypeList(pageBean));
         return "success";
     }
 

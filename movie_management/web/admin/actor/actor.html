@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>演员列表</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+		<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+		<link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+		<!-- iCheck -->
+		<link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
+		<!-- Morris chart -->
+		<link rel="stylesheet" href="../../plugins/morris/morris.css">
+		<!-- jvectormap -->
+		<link rel="stylesheet" href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+		<!-- Date Picker -->
+		<link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+		<!-- Daterange picker -->
+		<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+		<!-- bootstrap wysihtml5 - text editor -->
+		<link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<!--图片放大-->
+		<link rel="stylesheet" href="../../admincss/bootstrap-grid.min.css" />
+		<link rel="stylesheet" href="../../admincss/zoomify.min.css" />
+		<link rel="stylesheet" href="../../admincss/style.css" />
+		<link rel="stylesheet" href="../../admincss/admin.css" />
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div>
+			<section class="content-header">
+				<h1>
+      				演职人员列表
+      			</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#"><i class="fa fa-home"></i> Home</a>
+					</li>
+					<li>
+						<a href="#">演职人员维护</a>
+					</li>
+					<li class="active">演职人员列表</li>
+				</ol>
+			</section>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-body">
+								<table id="example1" class="table table-bordered table-striped">
+										<tr>
+											<td colspan="5">
+												<button type="button" class="btn btn-block btn-danger"><i class="fa fa-trash"></i>批量删除</button>
+												<button id="add" type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i>添加</button>
+											</td>
+										</tr>
+										<tr>
+											<th><input type="checkbox"></th>
+											<th>编号</th>
+											<th>演职人员</th>
+											<th>操作</th>
+										</tr>
+										<tr>
+											<td><input type="checkbox"></td>
+											<td>1</td>
+											<td>
+												<div class="example col-xs-3 col-md-3">
+													<img src="../../images/1.jpg" class="img-rounded">
+												</div>
+												<div class="count">
+													<p>成龙<span>男</span><span>1954-04-07</span><span>中国</span></p>
+													<p>出生地：<span>上海徐汇区</span></p>
+												</div>
+											</td>
+											<td><i class="fa fa-trash"></i><i class="fa fa-pencil"></i></td>
+										</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!--添加遮罩层-->
+		<div class="modal fade" id="addview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal" aria-label="Closes" value="x">
+						</button>
+						<h4 class="model-title">添加演职人员</h4>
+					</div>
+					<div class="modal-body">
+						<form id="f1">
+							<div class="form-group">
+								<label class="control-label">姓名</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">出生日期</label>
+								<input type="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">出生地</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">性别</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">国籍</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">民族</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">图片</label>
+								<div style="width: 200px;height: 200px;border: 1px solid #aaa;">
+									<img src="../../images/default.jpg" id="img" width="200px" height="200px"/>
+								</div>
+								<a href="javascript:;" class="a-upload">
+									<input type="file"  name="uploadFile" id="uploadFile">点击这里上传文件
+								</a>
+							</div>
+							<div class="form-group">
+								<label>简介</label>
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="保存" id="save">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--修改遮罩层-->
+		<div class="modal fade" id="updateview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal" aria-label="Closes" value="x">
+						</button>
+						<h4 class="model-title">修改演职人员信息</h4>
+					</div>
+					<div class="modal-body">
+						<form id="f2">
+							<div class="form-group">
+								<label class="control-label">姓名</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">出生日期</label>
+								<input type="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">出生地</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">性别</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">国籍</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">民族</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label">图片</label>
+								<input type="file" id="exampleInputFile" />
+							</div>
+							<div class="form-group">
+								<label>简介</label>
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="保存" id="update">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--删除遮罩层-->
+		<div class="modal fade" id="delview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="model-title">是否确认删除?</h4>
+					</div>
+					<div class="modal-body">
+						<input type="button" class="btn btn-primary del" value="确定" id="delete">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal" style="float: right;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery 2.2.3 -->
+		<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../../bootstrap/js/bootstrap.min.js"></script>
+		<!-- DataTables -->
+		<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- SlimScroll -->
+		<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		<!-- FastClick -->
+		<script src="../../plugins/fastclick/fastclick.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../../dist/js/app.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="../../dist/js/demo.js"></script>
+		<!-- 图片放大 -->
+		<script type="text/javascript" src="../../adminjs/zoomify.min.js"></script>
+		<script>
+			$(function() {
+				//图片放大
+				$('.example img').zoomify();
+				//添加数据
+				add();
+				//上传图片
+                uploadImg();
+				//修改数据
+				$(".fa-pencil").on("click", function() {
+					$("#updateview").modal("show");
+				});
+
+				//复选框全选
+				$("table :checkbox:first").change(function() {
+					$(this).closest("table")
+						.find(":checkbox:not(:first)")
+						.prop("checked", this.checked);
+				});
+
+				//删除
+				$(".fa-trash").on("click", function() {
+					$("#delview").modal("show");
+				});
+				$(".del").on("click", function() {
+					$("#delview").modal("hide");
+				});
+
+			});
+			//添加数据
+			function add(){
+                $("#add").on("click",function(){
+                    $("#f1 :input").val("");
+                    $("#addview").modal("show");
+                    $("#save").off("click").on("click",function(){
+                        var params = $("#f1").serialize();
+                        $.post("saveActor",params,function(retult){
+                            if(result.message != undefined){
+                                alert(result.message);
+                            }else{
+                                alert("添加成功");
+                            }
+                            $("#addview").modal("hide");
+                        });
+                    });
+
+                });
+			}
+			//上传图片
+			function uploadImg(){
+                $("#uploadFile").on("change",function () {
+                    var formData = new FormData(document.getElementById("f1"));
+					$.ajax({
+                        url : "filmUploadActorImg", //请求的url
+                        type : "post", //请求类型
+                        data : formData, //表单数据
+                        processData : false, //让Jquery不处理发送的数据
+                        contentType : false,  //让Jquery不设置Content-Type请求头
+                        success : function(result){ // 成功响应后的回调函数
+                            if(result.uploadFile != undefined){
+                                alert(result.uploadFile);
+                            }else{
+                                $("#img").attr("src","http://localhost:8080/manager/files/"+result);
+                            }
+                        }
+                    });
+
+                });
+			}
+		</script>
+	</body>
+
+</html>

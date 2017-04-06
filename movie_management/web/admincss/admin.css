@@ -1,0 +1,51 @@
+.btn-danger{
+	width: 10%;
+	float: left;
+}
+.btn-info{
+	width: 10%;
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px !important;
+}
+.fa-pencil{
+	margin-left: 10px;
+}
+.fa-pencil{
+	margin-left: 10px;
+}
+.fa-newspaper-o{
+	margin-left: 10px;
+}
+#delview .modal-content{
+	width: 30%;
+	margin-left: 30%;
+	margin-top: 30%;
+}
+.col-md-3{
+	width: 100px !important;
+	padding: 0px !important;
+}
+img {
+	width: 100px;
+	float: left;
+	border-radius:0px !important;
+}
+
+.count {
+	margin: 0px 0px 0px 120px;
+}
+
+.count p {
+	font-family: "楷体";
+}
+
+.count p span {
+	font-family: "楷体";
+	margin-left: 10px;
+	font-size: 12px;
+}
+
+.table>tbody>tr>td{
+	vertical-align: inherit !important;	
+}

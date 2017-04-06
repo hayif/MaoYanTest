@@ -3,6 +3,7 @@ package org.movie.service.impl;
 import org.movie.dao.ActorTypeDao;
 import org.movie.entity.ActorType;
 import org.movie.service.ActorTypeService;
+import org.movie.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -62,8 +63,9 @@ public class ActorTypeServiceImpl implements ActorTypeService {
     }
 
     @Override
-    public List<ActorType> findActorTypeList() {
-        return actorTypeDao.findActorTypeList();
+    public List<ActorType> findActorTypeList(PageBean pageBean) {
+        pageBean.setRowCount(actorTypeDao.countActorType());
+        return actorTypeDao.findActorTypeList(pageBean.getFirstResult(),pageBean.getMaxResult());
     }
 
     @Override

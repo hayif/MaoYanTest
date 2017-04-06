@@ -2,6 +2,7 @@ package org.movie.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.movie.entity.Actor;
+import org.movie.utils.PageBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,12 +14,18 @@ import java.util.List;
 @Repository
 public interface ActorDao extends BaseDao<Actor> {
     /**
+     * 统计查询
+     * @return
+     */
+    @Select("SELECT COUNT(*) FROM ACTOR_INFO")
+    public int countActor();
+    /**
      * 查询列表
      * @return
      */
-    @Select("SELECT * FROM ACTOR_INFO")
+    @Select("SELECT * FROM ACTOR_INFO  LIMIT  #{firstResult},#{maxResult}")
     @ResultMap("org.movie.dao.ActorDao.actorMap")
-    public List<Actor> findActorList();
+    public List<Actor> findActorList(int firstResult,int maxResult);
 
     /**
      * 模糊查询

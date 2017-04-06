@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>演员类型列表</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+		<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+		<link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+		<!-- iCheck -->
+		<link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
+		<!-- Morris chart -->
+		<link rel="stylesheet" href="../../plugins/morris/morris.css">
+		<!-- jvectormap -->
+		<link rel="stylesheet" href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+		<!-- Date Picker -->
+		<link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+		<!-- Daterange picker -->
+		<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+		<!-- bootstrap wysihtml5 - text editor -->
+		<link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<link rel="stylesheet" href="../../admincss/admin.css"
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div>
+			<section class="content-header">
+				<h1>
+      				演职人员类型
+     			 </h1>
+				<ol class="breadcrumb">
+					<li>
+						<a href="#"><i class="fa fa-home"></i> Home</a>
+					</li>
+					<li>
+						<a href="#">演职人员维护</a>
+					</li>
+					<li class="active">演职人员类型</li>
+				</ol>
+			</section>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-body">
+								<table id="example1" class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<td colspan="5">
+												<button type="button" class="btn btn-block btn-danger"><i class="fa fa-trash"></i>批量删除</button>
+												<button id="add" type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i>添加</button>
+											</td>
+										</tr>
+										<tr>
+											<th><input type="checkbox"></th>
+											<th>编号</th>
+											<th>类型名称</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="checkbox"></td>
+											<td>1</td>
+											<td>演员</td>
+											<td><i class="fa fa-trash"></i><i class="fa fa-pencil"></i></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!--添加修改遮罩层-->
+		<div class="modal fade" id="addview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="model-title">添加类型</h4>
+					</div>
+					<div class="modal-body">
+						<form id="f1">
+							<div class="form-group">
+								<label class="control-label">类型名称</label>
+								<input type="text" class="form-control">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="保存" id="save">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--修改修改遮罩层-->
+		<div class="modal fade" id="updateview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="model-title">修改类型</h4>
+					</div>
+					<div class="modal-body">
+						<form id="f2">
+							<div class="form-group">
+								<label class="control-label">类型名称</label>
+								<input type="text" class="form-control">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="保存" id="save">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--删除遮罩层-->
+		<div class="modal fade" id="delview">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="model-title">是否确认删除?</h4>
+					</div>
+					<div class="modal-body">
+						<input type="button" class="btn btn-primary del" value="确定" id="save">
+						<input type="button" class="btn btn-default" value="关闭" data-dismiss="modal" style="float: right;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery 2.2.3 -->
+		<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../../bootstrap/js/bootstrap.min.js"></script>
+		<!-- DataTables -->
+		<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- SlimScroll -->
+		<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		<!-- FastClick -->
+		<script src="../../plugins/fastclick/fastclick.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../../dist/js/app.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="../../dist/js/demo.js"></script>
+		<!-- page script -->
+		<script>
+			$(function() {
+				//添加数据
+				$("#add").on("click", function() {
+					$("#addview").modal("show");
+				});
+				
+				//修改数据
+				$(".fa-pencil").on("click", function() {
+					$("#updateview").modal("show");
+				});
+				
+				//复选框全选
+				$("table :checkbox:first").change(function() {
+					$(this).closest("table")
+						.find(":checkbox:not(:first)")
+						.prop("checked", this.checked);
+				});
+			
+				//删除
+				$(".fa-trash").on("click", function() {
+					$("#delview").modal("show");
+				});
+				$(".del").on("click",function(){
+					$("#delview").modal("hide");
+				});
+				
+			});
+		</script>
+	</body>
+
+</html>
