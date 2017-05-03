@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.ActorTypeDao">
+    <resultMap id="actorTypeMap" type="actorType">
+        <id property="actorTypeId" column="actor_type_id"/>
+        <result property="actorTypeName" column="actor_type_name"/>
+        <result property="actorTypeStatus" column="actor_type_status"/>
+    </resultMap>
+</mapper>

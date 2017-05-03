@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.MovieAreaDao">
+    <!--关联电影（多对多）-->
+    <resultMap id="movieMap" type="movie">
+
+    </resultMap>
+    <resultMap id="movieAreaMap" type="movieArea">
+        <id property="movieAreaId" column="movie_area_id"/>
+        <result property="movieAreaName" column="movie_area_name"/>
+        <result property="movieAreaStatus" column="movie_area_status"/>
+        <collection property="movies" resultMap="movieMap"/>
+    </resultMap>
+</mapper>

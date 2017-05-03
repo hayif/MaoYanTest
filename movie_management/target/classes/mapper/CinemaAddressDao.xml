@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.CinemaAddressDao">
+    <!--配置cinemaAddress 的resultMap-->
+    <resultMap id="cinemaAddressMap" type="cinemaAddress">
+        <id property="cinemaAddressId" column="cinema_address_id"/>
+        <result property="cinemaAddressCity" column="cinema_address_city"/>
+        <result property="cinemaAddressArea" column="cinema_address_area"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.CinemaDao">
+    <!--关联影院地址（多对一）-->
+    <resultMap id="cinemaAddressMap" type="cinemaAddress">
+        <id property="cinemaAddressId" column="cinema_address_id"/>
+        <result property="cinemaAddressCity" column="cinema_address_city"/>
+        <result property="cinemaAddressArea" column="cinema_address_area"/>
+    </resultMap>
+    <!--关联影厅（一对多）-->
+    <resultMap id="cinemaScreensMap" type="cinemaScreens">
+
+    </resultMap>
+    <!--关联评价影院（一对多）-->
+    <resultMap id="commentCinemaMap" type="commentCinema">
+
+    </resultMap>
+    <!--关联影院上映电影（一对多）-->
+    <resultMap id="cinemaShowMap" type="cinemaShow">
+
+    </resultMap>
+    <resultMap id="cinemaMap" type="cinema">
+        <id property="cinemaId" column="cinema_id"/>
+        <result property="cinemaName" column="cinema_name"/>
+        <result property="cinemaCover" column="cinema_cover"/>
+        <result property="cinemaScore" column="cinema_score"/>
+        <result property="cinemaIntro" column="cinema_intro"/>
+        <result property="cinemaTel" column="cinema_tel"/>
+        <result property="cinemaAddressParticular" column="cinema_address_particular"/>
+        <result property="cinemaStatus" column="cinema_status"/>
+
+        <association property="cinemaAddress" resultMap="cinemaAddressMap"/>
+
+        <collection property="cinemaScreenss" resultMap="cinemaScreensMap"/>
+
+        <collection property="commentCinemas" resultMap="commentCinemaMap"/>
+
+        <collection property="cinemaShows" resultMap="cinemaShowMap"/>
+    </resultMap>
+</mapper>
